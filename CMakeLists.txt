@@ -1,6 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(caterpillar LANGUAGES CXX)
-
+project(caterpillar LANGUAGES CXX VERSION 0.0.1)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
@@ -26,6 +25,10 @@ if(UNIX)
 endif()
 
 add_subdirectory(include)
+find_package(nlohmann_json REQUIRED)
+find_package(fmt REQUIRED)
+
+
 add_subdirectory(lib)
 
 if(CATERPILLAR_EXAMPLES)
@@ -40,3 +43,9 @@ endif()
 if(CATERPILLAR_EXPERIMENTS)
   add_subdirectory(experiments)
 endif()
+
+
+
+include(./cmake/headerOnlyLibrary.cmake)
+headerOnlyTarget(caterpillar ${CMAKE_PROJECT_VERSION} ${PROJECT_SOURCE_DIR}/include/)
+add_custom_target(caterpillarAll ALL DEPENDS caterpillar libabcsat)

@@ -18,4 +18,35 @@ else()
     set_property(TARGET libabcsat PROPERTY OUTPUT_NAME libabcsat)
     set_property(TARGET libabcsat PROPERTY POSITION_INDEPENDENT_CODE ON)
 endif()
-target_include_directories(libabcsat INTERFACE ${PROJECT_SOURCE_DIR})
+target_include_directories(libabcsat INTERFACE 
+$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}>
+$<INSTALL_INTERFACE:include>
+)
+
+include(CMakePackageConfigHelpers)
+
+write_basic_package_version_file(
+    "${PROJECT_BINARY_DIR}/libabcsatConfigVersion.cmake"
+    VERSION ${CMAKE_PROJECT_VERSION}
+    COMPATIBILITY AnyNewerVersion
+)
+
+install(TARGETS libabcsat
+EXPORT libabcsatTargets
+PUBLIC_HEADER DESTINATION include
+ARCHIVE DESTINATION lib/static
+LIBRARY DESTINATION lib
+)
+
+
+configure_package_config_file(
+    "${PROJECT_SOURCE_DIR}/cmake/libabcsatConfig.cmake.in"
+    "${PROJECT_BINARY_DIR}/libabcsatConfig.cmake"
+    INSTALL_DESTINATION lib/cmake/libabcsat
+)
+
+install(EXPORT libabcsatTargets DESTINATION lib/cmake/libabcsat)
+install(FILES "${PROJECT_BINARY_DIR}/libabcsatConfigVersion.cmake"
+              "${PROJECT_BINARY_DIR}/libabcsatConfig.cmake"
+        DESTINATION lib/cmake/libabcsat)
+install(DIRECTORY ./abc DESTINATION include)

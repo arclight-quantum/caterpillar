@@ -1,5 +1,8 @@
 add_library(caterpillar INTERFACE)
-target_include_directories(caterpillar INTERFACE ${PROJECT_SOURCE_DIR}/include)
+target_include_directories(caterpillar INTERFACE 
+    $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>
+)
 target_link_libraries(caterpillar INTERFACE mockturtle tweedledum json)
 
 if(CATERPILLAR_Z3)
