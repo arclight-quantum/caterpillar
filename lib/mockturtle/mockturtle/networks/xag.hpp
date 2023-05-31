@@ -832,8 +832,8 @@ public:
   uint32_t co_index( signal const& s ) const
   {
     uint32_t i = -1;
-    foreach_co( [&]( const auto& x, auto index ) {
-      if ( x == s )
+    foreach_co( [&]( const node_pointer<1>& x, auto index ) {
+      if ( x == (node_pointer<1>)s )
       {
         i = index;
         return false;
@@ -854,8 +854,8 @@ public:
   uint32_t po_index( signal const& s ) const
   {
     uint32_t i = -1;
-    foreach_po( [&]( const auto& x, auto index ) {
-      if ( x == s )
+    foreach_po( [&]( const node_pointer<1>& x, auto index ) {
+      if ( x == (node_pointer<1>)s )
       {
         i = index;
         return false;
@@ -876,8 +876,8 @@ public:
   uint32_t ri_index( signal const& s ) const
   {
     uint32_t i = -1;
-    foreach_ri( [&]( const auto& x, auto index ) {
-      if ( x == s )
+    foreach_ri( [&]( const node_pointer<1>& x, auto index ) {
+      if ( x == (node_pointer<1>)s )
       {
         i = index;
         return false;
