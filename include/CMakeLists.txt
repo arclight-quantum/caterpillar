@@ -3,7 +3,7 @@ target_include_directories(caterpillar INTERFACE
     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>
 )
-target_link_libraries(caterpillar INTERFACE mockturtle tweedledum json)
+target_link_libraries(caterpillar INTERFACE mockturtle tweedledum nlohmann_json::nlohmann_json)
 
 if(CATERPILLAR_Z3)
     target_compile_definitions(caterpillar INTERFACE USE_Z3) # -DUSE_Z3

@@ -1,4 +1,11 @@
 @PACKAGE_INIT@
-
+include(CMakeFindDependencyMacro)
+find_dependency(ez)
+find_dependency(kitty)
+find_dependency(lorina)
+find_dependency(sparsepp)
+find_dependency(percy)
+find_dependency(bill)
+find_dependency(nlohmann_json)
 include("${CMAKE_CURRENT_LIST_DIR}/mockturtleTargets.cmake")
 check_required_components("@PROJECT_NAME@")

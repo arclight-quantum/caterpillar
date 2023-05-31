@@ -1,4 +1,7 @@
 @PACKAGE_INIT@
-
+include(CMakeFindDependencyMacro)
+find_dependency(mockturtle)
+find_dependency(tweedledum)
+find_dependency(nlohmann_json)
 include("${CMAKE_CURRENT_LIST_DIR}/caterpillarTargets.cmake")
 check_required_components("@PROJECT_NAME@")

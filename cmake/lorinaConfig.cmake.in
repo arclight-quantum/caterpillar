@@ -1,4 +1,6 @@
 @PACKAGE_INIT@
-
+include(CMakeFindDependencyMacro)
+find_dependency(rang)
+find_dependency(fmt)
 include("${CMAKE_CURRENT_LIST_DIR}/lorinaTargets.cmake")
 check_required_components("@PROJECT_NAME@")
