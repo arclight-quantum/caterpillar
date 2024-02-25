@@ -1,8 +1,5 @@
-{llvmPackages, fetchFromGitHub, cmake, ninja, fmt, nlohmann_json
+{stdenv, fetchFromGitHub, cmake, ninja, fmt, nlohmann_json
 ,pkg-config}:
-let
-  stdenv = llvmPackages.stdenv;
-in
 stdenv.mkDerivation {
   pname = "caterpillar";
   version = "0.0.1";
