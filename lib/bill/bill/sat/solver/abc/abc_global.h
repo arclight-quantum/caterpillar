@@ -100,73 +100,10 @@ ABC_NAMESPACE_HEADER_START
 ////////////////////////////////////////////////////////////////////////
 ///                         BASIC TYPES                              ///
 ////////////////////////////////////////////////////////////////////////
-
-/**
- * Pointer difference type; replacement for ptrdiff_t.
- * This is a signed integral type that is the same size as a pointer.
- * NOTE: This type may be different sizes on different platforms.
- */
-#if       defined(__ccdoc__)
-typedef platform_dependent_type ABC_PTRDIFF_T;
-#elif     defined(LIN64)
-typedef long ABC_PTRDIFF_T;
-#elif     defined(NT64)
-typedef long long ABC_PTRDIFF_T;
-#elif     defined(NT) || defined(LIN) || defined(WIN32)
-typedef int ABC_PTRDIFF_T;
-#else
-   #error unknown platform
-#endif /* defined(PLATFORM) */
-
-/**
- * Unsigned integral type that can contain a pointer.
- * This is an unsigned integral type that is the same size as a pointer.
- * NOTE: This type may be different sizes on different platforms.
- */
-#if       defined(__ccdoc__)
-typedef platform_dependent_type ABC_PTRUINT_T;
-#elif     defined(LIN64)
-typedef unsigned long ABC_PTRUINT_T;
-#elif     defined(NT64)
-typedef unsigned long long ABC_PTRUINT_T;
-#elif     defined(NT) || defined(LIN) || defined(WIN32)
-typedef unsigned int ABC_PTRUINT_T;
-#else
-   #error unknown platform
-#endif /* defined(PLATFORM) */
-
-/**
- * Signed integral type that can contain a pointer.
- * This is a signed integral type that is the same size as a pointer.
- * NOTE: This type may be different sizes on different platforms.
- */
-#if       defined(__ccdoc__)
-typedef platform_dependent_type ABC_PTRINT_T;
-#elif     defined(LIN64)
-typedef long ABC_PTRINT_T;
-#elif     defined(NT64)
-typedef long long ABC_PTRINT_T;
-#elif     defined(NT) || defined(LIN) || defined(WIN32)
-typedef int ABC_PTRINT_T;
-#else
-   #error unknown platform
-#endif /* defined(PLATFORM) */
-
-/**
- * 64-bit signed integral type.
- */
-#if       defined(__ccdoc__)
-typedef platform_dependent_type ABC_INT64_T;
-#elif     defined(LIN64)
-typedef long ABC_INT64_T;
-#elif     defined(NT64) || defined(LIN)
-typedef long long ABC_INT64_T;
-#elif     defined(WIN32) || defined(NT)
-typedef signed __int64 ABC_INT64_T;
-#else
-   #error unknown platform
-#endif /* defined(PLATFORM) */
-
+typedef ptrdiff_t ABC_PTRDIFF_T;
+typedef uintptr_t ABC_PTRUINT_T;
+typedef intptr_t ABC_PTRINT_T;
+typedef int64_t ABC_INT64_T;
 /**
  * 64-bit unsigned integral type.
  */
