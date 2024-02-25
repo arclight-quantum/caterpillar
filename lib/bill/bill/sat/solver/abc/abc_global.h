@@ -26,6 +26,7 @@
 ////////////////////////////////////////////////////////////////////////
 
 #include <cstdint>
+#include <cstddef>
 #ifdef _WIN32
 #ifndef __MINGW32__
 //#define inline __inline // compatible with MS VS 6.0
